@@ -1,4 +1,8 @@
+import jwt from 'jsonwebtoken'
 import db from '@/server/db'
+//未完成
+
+const runtimeConfig = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
   const user = event.context?.auth?.user
@@ -20,15 +24,11 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Could not find user.'
     })
   }
+  console.log('userRecord.id' + userRecord.id)
+  console.log('userRecord.email' + userRecord.email)
 
   return {
     id: userRecord.id,
-    provider: {
-      name: userRecord.providerName,
-      userId: userRecord.providerUserId
-    },
-    nickname: userRecord.nickname,
-    avatar: userRecord.avatar,
     email: userRecord.email
   }
 })

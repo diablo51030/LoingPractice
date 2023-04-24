@@ -58,12 +58,9 @@ export default defineEventHandler(async (event) => {
         path: '/'
     })
 
-    // setCookie( event, 'access_token',  jwtToken,{
-    //     maxAge:-1
-    // })
-
     return {
         id: userRecord.id,
         email: userRecord.email
     } 
+
 })
